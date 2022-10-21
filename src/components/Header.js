@@ -12,9 +12,9 @@ export default function Header() {
       {/* these will all be links to categories */}
       <nav className="nav-left">
         <h3>Shop</h3>
-        <h3>Category 1</h3>
-        <h3>Category 2</h3>
-        <h3>Category 3</h3>
+        <h3>Clothing</h3>
+        <h3>Jewelry</h3>
+        <h3>Electronics</h3>
       </nav>
 
       <nav className="nav-right">
