@@ -3,6 +3,11 @@
   flex-direction: column;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 header {
   display: flex;
   justify-content: space-between;
