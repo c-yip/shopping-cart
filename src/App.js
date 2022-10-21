@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
+import Shop from "./pages/Shop";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="*" element={<h1>404: Page not found</h1>} />
       </Routes>
 
       <Footer />
