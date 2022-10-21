@@ -8,9 +8,8 @@ function useFetchData() {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((data) =>
-        setStoreData(() => {
-          console.log("pure data", data);
-          return data;
+        setStoreData(
+          () => data
           // hard to call data
           // return {
           //   clothes: {
@@ -22,7 +21,7 @@ function useFetchData() {
           //   jewelry: data.filter((item) => item.category === "jewelery"),
           //   electronics: data.filter((item) => item.category === "electronics"),
           // };
-        })
+        )
       );
   }, []);
 

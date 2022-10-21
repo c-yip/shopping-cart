@@ -11,7 +11,9 @@ export default function Header() {
 
       {/* these will all be links to categories */}
       <nav className="nav-left">
-        <h3>Shop</h3>
+        <Link to="/shop">
+          <h3>Shop</h3>
+        </Link>
         <h3>Clothing</h3>
         <h3>Jewelry</h3>
         <h3>Electronics</h3>
