@@ -1,11 +1,17 @@
-.App {
-  display: flex;
-  flex-direction: column;
+h1,
+h3,
+p {
+  margin: 0;
+  padding: 0;
 }
 
 a {
   color: inherit;
   text-decoration: inherit;
+}
+.App {
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -13,11 +19,7 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ddd;
-  width: 100%;
-}
-
-.logo {
-  margin-left: 1rem;
+  padding: 1rem;
 }
 
 .nav-left,
@@ -51,10 +53,6 @@ header {
   margin: 0;
 }
 
-main {
-  background-color: white;
-}
-
 footer {
   background-color: #222;
   color: white;
@@ -70,4 +68,57 @@ footer {
 footer > a > img {
   width: 30px;
   height: 30px;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
+.home .section1 {
+  display: flex;
+  justify-content: flex-end;
+  background-color: black;
+}
+
+.shop-button {
+  background-color: #222;
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 8rem;
+  text-align: center;
+}
+
+.home .section1 img {
+  width: 100%;
+  position: relative;
+  opacity: 0.6;
+}
+
+.home .section1 .overlay {
+  position: absolute;
+  top: 18rem;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.home .hero {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 50rem;
+}
+.home .section1:after {
+  background: #0000006c;
+  content: "";
 }
