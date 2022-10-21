@@ -98,6 +98,11 @@ footer > a > img {
   text-align: center;
 }
 
+.shop-button:hover {
+  background-color: white;
+  color: black;
+}
+
 .home .section1 img {
   width: 100%;
   position: relative;
