@@ -1,23 +1,15 @@
 import { Link } from "react-router-dom";
 import heroImage from "../images/woman-shopping-for-clothes.jpg";
+import couch from "../images/couch.jpg";
+import shoppingCart from "../images/shopping-cart.jpg";
 import useFetchData from "../hooks/useFetchData";
 
 export default function Home() {
   const { storeData, loading } = useFetchData();
 
-  let featuredPics = [];
-  if (!loading) {
-    featuredPics.push(
-      storeData[0].image,
-      storeData[5].image,
-      storeData[11].image,
-      storeData[19].image
-    );
-  }
-
   return (
     <div className="page home">
-      <div className="hero-section">
+      <section className="hero-section">
         <img
           src={heroImage}
           alt="Woman shopping"
@@ -30,55 +22,85 @@ export default function Home() {
             <button className="shop-button">Shop Now</button>
           </Link>
         </div>
-      </div>
+      </section>
 
-      <div className="featured-items categories">
-        <div
-          className="category-item"
-          style={{
-            backgroundImage: `url(${featuredPics[0]})`,
-          }}
-        ></div>
-        <div
-          className="category-item"
-          style={{
-            backgroundImage: `url(${featuredPics[1]})`,
-          }}
-        ></div>
-        <div
-          className="category-item"
-          style={{
-            backgroundImage: `url(${featuredPics[2]})`,
-          }}
-        ></div>
-        <div
-          className="category-item"
-          style={{
-            backgroundImage: `url(${featuredPics[3]})`,
-          }}
-        >
-          {" "}
-        </div>
-      </div>
+      <section className="featured-items-section">
+        <h1 className="category-title">Featured Items</h1>
+        {!loading ? (
+          <div className="featured-items categories">
+            <div
+              className="category-item"
+              style={{
+                backgroundImage: `url(${storeData[1].image})`,
+              }}
+            >
+              <div className="category-item-inner">
+                <div>{!loading && storeData[1].title}</div>
+              </div>
+            </div>
+            <div
+              className="category-item"
+              style={{
+                backgroundImage: `url(${storeData[5].image})`,
+              }}
+            >
+              <div className="category-item-inner">
+                <div>{!loading && storeData[5].title}</div>
+              </div>
+            </div>
+            <div
+              className="category-item"
+              style={{
+                backgroundImage: `url(${storeData[19].image})`,
+              }}
+            >
+              <div className="category-item-inner">
+                <div>{!loading && storeData[19].title}</div>
+              </div>
+            </div>
+            <div
+              className="category-item"
+              style={{
+                backgroundImage: `url(${storeData[12].image})`,
+              }}
+            >
+              <div className="category-item-inner">
+                <div>{!loading && storeData[12].title}</div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <h1>Loading . . . </h1>
+        )}
+      </section>
 
-      <div className="section3">
+      <div className="about-section">
         <div className="description1">
-          <img src="" alt="image" />
-          <h2>What is Fake Store?</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            consectetur, nisl nec ultricies lacinia, nisl nisl aliquet nisl, nec
-            aliquet nisl nis.
-          </p>
+          <img src={couch} alt="image" />
+          <div>
+            <h2>What is Fake Store?</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              consectetur, nisl nec ultricies lacinia, nisl nisl aliquet nisl,
+              nec aliquet nisl nis.
+            </p>
+          </div>
         </div>
 
         <div className="description2">
-          <h2>Explore our fake stuff</h2>
-          <img src="" alt="image" />
+          <div>
+            <h2>Save money with our fake stuff!</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              consectetur, nisl nec ultricies lacinia, nisl nisl aliquet nisl,
+              nec aliquet nisl nis.
+            </p>
+          </div>
+          <img src={shoppingCart} alt="image" />
         </div>
       </div>
 
-      <div className="section4">
+      <section className="contact-section">
         <h2>Contact us</h2>
         <div className="contact">
           <div className="contact-info">
@@ -87,7 +109,7 @@ export default function Home() {
             <p>Address: 123 Fake Street, Fake City, Fake State, 12345</p>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
