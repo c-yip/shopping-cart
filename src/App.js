@@ -10,7 +10,7 @@ import Shop from "./pages/Shop";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App font-link">
       <Header />
 
       <Routes>
