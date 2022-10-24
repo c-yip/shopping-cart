@@ -9,7 +9,15 @@ function useFetchData() {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((data) => {
-        setStoreData(() => data);
+        setStoreData(() => {
+          return (
+            data,
+            data.map((item) => {
+              item.favorite = false;
+              return item;
+            })
+          );
+        });
         setLoading(false);
       })
       .catch((error) => {
@@ -19,6 +27,17 @@ function useFetchData() {
         );
       });
   }, []);
+
+  function toggleFavorite(id) {
+    setStoreData((prevState) => {
+      return prevState.map((item) => {
+        if (item.id === id) {
+          item.favorite = !item.favorite;
+        }
+        return item;
+      });
+    });
+  }
 
   return { storeData, loading };
 }
