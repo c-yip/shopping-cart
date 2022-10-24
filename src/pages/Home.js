@@ -1,10 +1,23 @@
 import { Link } from "react-router-dom";
 import heroImage from "../images/woman-shopping-for-clothes.jpg";
+import useFetchData from "../hooks/useFetchData";
 
 export default function Home() {
+  const { storeData, loading } = useFetchData();
+
+  let featuredPics = [];
+  if (!loading) {
+    featuredPics.push(
+      storeData[0].image,
+      storeData[5].image,
+      storeData[11].image,
+      storeData[19].image
+    );
+  }
+
   return (
     <div className="page home">
-      <div className="section1">
+      <div className="hero-section">
         <img
           src={heroImage}
           alt="Woman shopping"
@@ -19,16 +32,32 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="section2">
-        <h2>Featured items</h2>
-        <div className="featured-items">
-          {/* four item cards */}
-          <div className="item-card">
-            <p>item goes here</p>
-            <p>item goes here</p>
-            <p>item goes here</p>
-            <p>item goes here</p>
-          </div>
+      <div className="featured-items categories">
+        <div
+          className="category-item"
+          style={{
+            backgroundImage: `url(${featuredPics[0]})`,
+          }}
+        ></div>
+        <div
+          className="category-item"
+          style={{
+            backgroundImage: `url(${featuredPics[1]})`,
+          }}
+        ></div>
+        <div
+          className="category-item"
+          style={{
+            backgroundImage: `url(${featuredPics[2]})`,
+          }}
+        ></div>
+        <div
+          className="category-item"
+          style={{
+            backgroundImage: `url(${featuredPics[3]})`,
+          }}
+        >
+          {" "}
         </div>
       </div>
 
