@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import heart from "../images/heart.png";
 import heartOutline from "../images/heart-outline.png";
+import { nanoid } from "nanoid";
 
 function useFetchData() {
   const [storeData, setStoreData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useState([]);
 
   // fetch data from the API
   useEffect(() => {
@@ -15,6 +17,7 @@ function useFetchData() {
           return (
             data,
             data.map((item) => {
+              item.id = nanoid();
               item.favorite = false;
               return item;
             })
@@ -51,7 +54,16 @@ function useFetchData() {
     }
   }
 
-  return { storeData, loading, toggleFavorite, heartStyle };
+  function addToCart(item) {
+    setCart((prev) => {
+      item.cartId = nanoid();
+      return [...prev, item];
+    });
+  }
+
+  console.log(cart);
+
+  return { storeData, loading, toggleFavorite, heartStyle, addToCart };
 }
 
 export default useFetchData;

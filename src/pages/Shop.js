@@ -1,8 +1,8 @@
 import useFetchData from "../hooks/useFetchData";
 
 export default function Shop() {
-  const { storeData, loading, toggleFavorite, heartStyle } = useFetchData();
-  console.log(storeData);
+  const { storeData, loading, toggleFavorite, heartStyle, addToCart } =
+    useFetchData();
 
   const allProducts = storeData.map((item) => (
     <div className="product-card" key={item.id}>
@@ -14,7 +14,9 @@ export default function Shop() {
         <p className="product-rating-count">({item.rating.count})</p>
       </div>
       <div className="product-buttons">
-        <button className="product-button">Add to cart</button>
+        <button className="product-button" onClick={() => addToCart(item)}>
+          Add to cart
+        </button>
         <img
           src={heartStyle(item.favorite)}
           alt="heart icon"
