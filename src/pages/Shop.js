@@ -1,7 +1,7 @@
 import useFetchData from "../hooks/useFetchData";
 import heart from "../images/heart.png";
 export default function Shop() {
-  const { storeData } = useFetchData();
+  const { storeData, loading } = useFetchData();
 
   const allProducts = storeData.map((item) => (
     <div className="product-card" key={item.id}>
@@ -22,6 +22,7 @@ export default function Shop() {
   return (
     <div className="shop page">
       <h1 className="shop-title">Shop All</h1>
+      {loading && <h1>Loading . . .</h1>}
       <div className="products-container">{allProducts}</div>;
     </div>
   );

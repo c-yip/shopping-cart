@@ -2,30 +2,25 @@ import { useState, useEffect } from "react";
 
 function useFetchData() {
   const [storeData, setStoreData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // fetch data from the API
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((data) =>
-        setStoreData(
-          () => data
-          // hard to call data
-          // return {
-          //   clothes: {
-          //     men: data.filter((item) => item.category === "men's clothing"),
-          //     women: data.filter(
-          //       (item) => item.category === "women's clothing"
-          //     ),
-          //   },
-          //   jewelry: data.filter((item) => item.category === "jewelery"),
-          //   electronics: data.filter((item) => item.category === "electronics"),
-          // };
-        )
-      );
+      .then((data) => {
+        setStoreData(() => data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(
+          "There has been a problem with your fetch operation:",
+          error
+        );
+      });
   }, []);
 
-  return { storeData };
+  return { storeData, loading };
 }
 
 export default useFetchData;
