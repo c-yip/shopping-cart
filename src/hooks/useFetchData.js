@@ -29,17 +29,19 @@ function useFetchData() {
   }, []);
 
   function toggleFavorite(id) {
-    setStoreData((prevState) => {
-      return prevState.map((item) => {
-        if (item.id === id) {
-          item.favorite = !item.favorite;
-        }
-        return item;
-      });
-    });
+    setStoreData((prev) =>
+      prev.map((item) => {
+        return item.id === id
+          ? {
+              ...item,
+              favorite: !item.favorite,
+            }
+          : item;
+      })
+    );
   }
 
-  return { storeData, loading };
+  return { storeData, loading, toggleFavorite };
 }
 
 export default useFetchData;
