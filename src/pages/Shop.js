@@ -21,7 +21,7 @@ export default function Shop() {
 
   return (
     <div className="shop page">
-      <h1 className="shop-title">Shop All</h1>
+      <h1 className="page-title">Shop All</h1>
       {loading && <h1>Loading . . .</h1>}
       <div className="products-container">{allProducts}</div>;
     </div>

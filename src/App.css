@@ -248,6 +248,17 @@ footer > a > img {
 
 /* shop page */
 
+.shop {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  font-size: 45px;
+  padding: 30px;
+  text-decoration: underline;
+}
+
 .products-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
