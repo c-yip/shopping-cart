@@ -1,7 +1,7 @@
 import useFetchData from "../hooks/useFetchData";
-import heart from "../images/heart.png";
+
 export default function Shop() {
-  const { storeData, loading, toggleFavorite } = useFetchData();
+  const { storeData, loading, toggleFavorite, heartStyle } = useFetchData();
   console.log(storeData);
 
   const allProducts = storeData.map((item) => (
@@ -16,10 +16,10 @@ export default function Shop() {
       <div className="product-buttons">
         <button className="product-button">Add to cart</button>
         <img
-          className="heart-icon"
+          src={heartStyle(item.favorite)}
+          alt="heart icon"
           onClick={() => toggleFavorite(item.id)}
-          src={heart}
-          alt="Favorite icon"
+          className="heart-icon"
         />
       </div>
     </div>

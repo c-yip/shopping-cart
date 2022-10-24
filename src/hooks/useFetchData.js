@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import heart from "../images/heart.png";
+import heartOutline from "../images/heart-outline.png";
 
 function useFetchData() {
   const [storeData, setStoreData] = useState([]);
@@ -41,7 +43,15 @@ function useFetchData() {
     );
   }
 
-  return { storeData, loading, toggleFavorite };
+  function heartStyle(favorite) {
+    if (favorite) {
+      return heart;
+    } else {
+      return heartOutline;
+    }
+  }
+
+  return { storeData, loading, toggleFavorite, heartStyle };
 }
 
 export default useFetchData;
