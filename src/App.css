@@ -318,6 +318,13 @@ footer > a > img {
   padding: 3rem;
 }
 
+.wishlist-empty-message {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  padding: 1rem;
+}
+
 @media (max-width: 1000px) {
   .category-item {
     min-width: 50%;
