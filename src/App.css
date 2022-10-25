@@ -237,6 +237,7 @@ footer > a > img {
 .products-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
   gap: 3rem;
   padding: 3rem;
 }
@@ -250,11 +251,14 @@ footer > a > img {
   padding: 1rem;
 }
 
-.product-title {
-  font-size: 1.3rem;
+.product-card > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.product-description {
+.product-title {
+  font-size: 1.3rem;
 }
 
 .product-image {
@@ -304,6 +308,14 @@ footer > a > img {
 .heart-icon {
   width: 40px;
   cursor: pointer;
+}
+
+.wishlist-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 3rem;
+  padding: 3rem;
 }
 
 @media (max-width: 1000px) {

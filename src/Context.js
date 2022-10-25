@@ -7,6 +7,7 @@ function ContextProvider({ children }) {
   const [storeData, setStoreData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -52,10 +53,21 @@ function ContextProvider({ children }) {
     });
   }
 
+  function removeFromCart(id) {
+    setCart((prev) => prev.filter((item) => item.cartId !== id));
+  }
+
+  function storeItemId(id) {
+    setSelectedProduct(id);
+    console.log("selectedProduct", selectedProduct);
+  }
+
   console.log(storeData);
 
   return (
-    <Context.Provider value={{ storeData, loading, toggleFavorite, addToCart }}>
+    <Context.Provider
+      value={{ storeData, loading, toggleFavorite, addToCart, storeItemId }}
+    >
       {children}
     </Context.Provider>
   );

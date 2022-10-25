@@ -1,12 +1,29 @@
-// import useHooks from "../hooks/useHooks";
+import { Context } from "../Context";
+import { useContext } from "react";
+import useHooks from "../hooks/useHooks";
+import { ProductCard } from "./ProductCard";
 
 export default function Wishlist() {
-  // const { storeData, loading, toggleFavorite, heartStyle } = useHooks();
+  const { storeData, storeItemId, toggleFavorite, addToCart } =
+    useContext(Context);
+  const { heartStyle } = useHooks();
+
+  const wishlistElements = storeData.map((item) => {
+    if (item.favorite) {
+      return ProductCard(
+        item,
+        storeItemId,
+        addToCart,
+        heartStyle,
+        toggleFavorite
+      );
+    }
+  });
 
   return (
     <div className="wishlist page">
       <h1>Wishlist</h1>
-      <div>the wishlist</div>
+      <div className="wishlist-container">{wishlistElements}</div>
     </div>
   );
 }
