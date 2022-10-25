@@ -1,7 +1,7 @@
 import heart from "../images/heart.png";
 import heartOutline from "../images/heart-outline.png";
 
-function useFetchData() {
+function useHooks() {
   function heartStyle(favorite) {
     if (favorite) {
       return heart;
@@ -13,4 +13,4 @@ function useFetchData() {
   return { heartStyle };
 }
 
-export default useFetchData;
+export default useHooks;
