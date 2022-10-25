@@ -34,7 +34,11 @@ function ContextProvider({ children }) {
 
   console.log(storeData);
 
-  return <Context.Provider value={{ storeData }}>{children}</Context.Provider>;
+  return (
+    <Context.Provider value={{ storeData, loading }}>
+      {children}
+    </Context.Provider>
+  );
 }
 
 export { ContextProvider, Context };

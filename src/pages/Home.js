@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
+import React, { useContext } from "react";
 import heroImage from "../images/woman-shopping-for-clothes.jpg";
 import couch from "../images/couch.jpg";
 import shoppingCart from "../images/shopping-cart.jpg";
-import useFetchData from "../hooks/useFetchData";
+import { Context } from "../Context";
 
 export default function Home() {
-  const { storeData, loading } = useFetchData();
+  const { storeData, loading } = useContext(Context);
+  console.log("Home", storeData, "loading", loading);
 
   return (
     <div className="page home">
