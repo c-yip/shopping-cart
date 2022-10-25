@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../Context";
 import useHooks from "../hooks/useHooks";
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "../components/ProductCard";
 
 export default function Shop() {
   const { storeData, loading, toggleFavorite, addToCart, storeItemId } =
