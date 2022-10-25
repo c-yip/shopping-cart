@@ -32,10 +32,30 @@ function ContextProvider({ children }) {
       });
   }, []);
 
+  function toggleFavorite(id) {
+    setStoreData((prev) =>
+      prev.map((item) => {
+        return item.id === id
+          ? {
+              ...item,
+              favorite: !item.favorite,
+            }
+          : item;
+      })
+    );
+  }
+
+  function addToCart(item) {
+    setCart((prev) => {
+      item.cartId = nanoid();
+      return [...prev, item];
+    });
+  }
+
   console.log(storeData);
 
   return (
-    <Context.Provider value={{ storeData, loading }}>
+    <Context.Provider value={{ storeData, loading, toggleFavorite, addToCart }}>
       {children}
     </Context.Provider>
   );

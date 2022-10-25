@@ -1,8 +1,12 @@
-import useFetchData from "../hooks/useFetchData";
+import React, { useContext } from "react";
+import { Context } from "../Context";
+import useHooks from "../hooks/useHooks";
 
 export default function Shop() {
-  const { storeData, loading, toggleFavorite, heartStyle, addToCart } =
-    useFetchData();
+  const { storeData, loading, toggleFavorite, addToCart } = useContext(Context);
+  const { heartStyle } = useHooks();
+
+  console.log("Shop", storeData, "loading", loading);
 
   const allProducts = storeData.map((item) => (
     <div className="product-card" key={item.id}>

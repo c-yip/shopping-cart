@@ -1,7 +1,7 @@
-import useFetchData from "../hooks/useFetchData";
+// import useHooks from "../hooks/useHooks";
 
 export default function Wishlist() {
-  const { storeData, loading, toggleFavorite, heartStyle } = useFetchData();
+  // const { storeData, loading, toggleFavorite, heartStyle } = useHooks();
 
   return (
     <div className="wishlist page">
