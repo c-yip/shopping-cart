@@ -1,7 +1,7 @@
 import { Context } from "../Context";
 import { useContext } from "react";
 import useHooks from "../hooks/useHooks";
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "../components/ProductCard";
 
 export default function Wishlist() {
   const { storeData, storeItemId, toggleFavorite, addToCart } =
@@ -22,7 +22,7 @@ export default function Wishlist() {
 
   return (
     <div className="wishlist page">
-      <h1>Wishlist</h1>
+      <h1 className="page-title">Wishlist</h1>
       <div className="wishlist-container">{wishlistElements}</div>
     </div>
   );
