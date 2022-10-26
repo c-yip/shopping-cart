@@ -66,7 +66,14 @@ function ContextProvider({ children }) {
 
   return (
     <Context.Provider
-      value={{ storeData, loading, toggleFavorite, addToCart, storeItemId }}
+      value={{
+        storeData,
+        loading,
+        toggleFavorite,
+        addToCart,
+        storeItemId,
+        selectedProduct,
+      }}
     >
       {children}
     </Context.Provider>

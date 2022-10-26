@@ -1,19 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useHooks from "../hooks/useHooks";
 
-export function ProductCard(
-  item,
-  storeItemId,
-  addToCart,
-  heartStyle,
-  toggleFavorite
-) {
-  function convertPrice(price) {
-    return price.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
-  }
+export function ProductCard(item, storeItemId, addToCart, toggleFavorite) {
+  const { heartStyle, convertPrice } = useHooks();
 
   return (
     <div className="product-card" key={item.id}>

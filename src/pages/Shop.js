@@ -6,12 +6,11 @@ import { ProductCard } from "../components/ProductCard";
 export default function Shop() {
   const { storeData, loading, toggleFavorite, addToCart, storeItemId } =
     useContext(Context);
-  const { heartStyle } = useHooks();
 
   console.log("Shop", storeData, "loading", loading);
 
   const allProducts = storeData.map((item) =>
-    ProductCard(item, storeItemId, addToCart, heartStyle, toggleFavorite)
+    ProductCard(item, storeItemId, addToCart, toggleFavorite)
   );
 
   return (

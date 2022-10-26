@@ -10,7 +10,14 @@ function useHooks() {
     }
   }
 
-  return { heartStyle };
+  function convertPrice(price) {
+    return price.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+  }
+
+  return { heartStyle, convertPrice };
 }
 
 export default useHooks;
