@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../Context";
 import useHooks from "../hooks/useHooks";
@@ -16,9 +16,22 @@ export default function Cart() {
 
   const { convertPrice } = useHooks();
 
-  const cartHeading = (
-    <h2 className="cart-heading">My cart ({cart.length} items)</h2>
-  );
+  const [sum, setSum] = useState();
+
+  useEffect(() => {
+    const price = cart.map((item) => {
+      return item.price * item.quantity;
+    });
+
+    console.log("price", price);
+
+    const sum = price.reduce((accumulator, num) => {
+      return accumulator + num;
+    }, 0);
+    setSum(sum);
+  }, [cart]);
+
+  const cartHeading = <h2 className="cart-heading">My Cart</h2>;
 
   const cartElements = cart.map((item) => {
     return (
@@ -70,7 +83,7 @@ export default function Cart() {
 
       <div className="total-container">
         <p>Sub-total:</p>
-        <p>$45.00</p>
+        <p>${sum}</p>
       </div>
 
       <div className="total-container">
@@ -80,7 +93,7 @@ export default function Cart() {
 
       <div className="total-container">
         <h4>Total: </h4>
-        <h4>$500.00</h4>
+        <h4>${sum}</h4>
       </div>
 
       <button className="product-button">Place your order</button>

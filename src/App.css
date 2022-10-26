@@ -401,7 +401,7 @@ footer > a > img {
   align-items: center;
   border: black solid 1px;
   margin: 20px;
-  max-width: 750px;
+  min-width: 750px;
 }
 
 .cart-item-container {
