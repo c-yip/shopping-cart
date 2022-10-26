@@ -104,11 +104,14 @@ export default function Cart() {
 
   return (
     <div className="cart-page">
-      <div className="cart-container">
-        {cartHeading}
-        <div className="cart-item-container">{cartElements}</div>
-      </div>
-
+      {cart.length === 0 ? (
+        <h1>Your cart is empty</h1>
+      ) : (
+        <div className="cart-container">
+          {cartHeading}
+          <div className="cart-item-container">{cartElements}</div>
+        </div>
+      )}
       {cartTotal}
     </div>
   );
