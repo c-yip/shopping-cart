@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../Context";
 import useHooks from "../hooks/useHooks";
 import deleteSymbol from "../images/delete-symbol.png";
@@ -16,14 +17,21 @@ export default function Cart() {
     return (
       <div className="cart-item">
         <div className="image-container">
-          <img className="cart-item-image" src={item.image} alt="product" />
+          <Link to="/productdetails">
+            <img
+              className="cart-item-image"
+              src={item.image}
+              alt="product"
+              onClick={storeItemId(item.id)}
+            />
+          </Link>
         </div>
         <div className="cart-text-container">
           <h1 className="cart-title">{item.title}</h1>
           <p className="cart-item-price">{convertPrice(item.price)}</p>
 
           <div className="flex space-between">
-            <p className="cart-item-quantity">Quantity:</p>
+            <p className="cart-item-quantity">Quantity: {item.quantity}</p>
             <img className="delete-symbol" src={deleteSymbol} alt="delete" />
           </div>
         </div>

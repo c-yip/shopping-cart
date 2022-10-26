@@ -47,9 +47,14 @@ function ContextProvider({ children }) {
   }
 
   function addToCart(item) {
-    setCart((prev) => {
-      return [...prev, item];
-    });
+    // if duplicate item is added, increase quantity
+    const duplicateItem = cart.find((cartItem) => cartItem.id === item.id);
+    if (duplicateItem) {
+      duplicateItem.quantity++;
+      setCart([...cart]);
+    } else {
+      setCart((prev) => [...prev, { ...item, quantity: 1 }]);
+    }
   }
 
   function removeFromCart(id) {
