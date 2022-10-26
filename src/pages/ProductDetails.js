@@ -16,7 +16,6 @@ export default function ProductDetails() {
 
   // select product from selectedProduct
   const product = storeData.filter((item) => item.id === selectedProduct)[0];
-  console.log("product", product);
 
   // product details page elements
   const productDetailsElements = (

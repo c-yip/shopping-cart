@@ -7,7 +7,6 @@ import { Context } from "../Context";
 
 export default function Home() {
   const { storeData, loading } = useContext(Context);
-  console.log("Home", storeData, "loading", loading);
 
   return (
     <div className="page home">

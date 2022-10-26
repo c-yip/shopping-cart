@@ -12,7 +12,6 @@ export default function Wishlist() {
   useEffect(() => {
     if (storeData.filter((item) => item.favorite === true).length === 0) {
       setWishlistEmpty(true);
-      console.log("triggered setWishlistEmpty");
     } else {
       setWishlistEmpty(false);
     }
