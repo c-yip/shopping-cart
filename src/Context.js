@@ -48,7 +48,6 @@ function ContextProvider({ children }) {
 
   function addToCart(item) {
     setCart((prev) => {
-      item.cartId = nanoid();
       return [...prev, item];
     });
   }
@@ -59,10 +58,7 @@ function ContextProvider({ children }) {
 
   function storeItemId(id) {
     setSelectedProduct(id);
-    console.log("selectedProduct", selectedProduct);
   }
-
-  console.log(storeData);
 
   return (
     <Context.Provider
@@ -73,6 +69,7 @@ function ContextProvider({ children }) {
         addToCart,
         storeItemId,
         selectedProduct,
+        cart,
       }}
     >
       {children}
