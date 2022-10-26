@@ -58,7 +58,33 @@ function ContextProvider({ children }) {
   }
 
   function removeFromCart(id) {
-    setCart((prev) => prev.filter((item) => item.cartId !== id));
+    setCart((prev) => prev.filter((item) => item.id !== id));
+  }
+
+  function addQuantity(id) {
+    setCart((prev) =>
+      prev.map((item) => {
+        return item.id === id
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+            }
+          : item;
+      })
+    );
+  }
+
+  function subtractQuantity(id) {
+    setCart((prev) =>
+      prev.map((item) => {
+        return item.id === id && item.quantity > 0
+          ? {
+              ...item,
+              quantity: item.quantity - 1,
+            }
+          : item;
+      })
+    );
   }
 
   function storeItemId(id) {
@@ -75,6 +101,9 @@ function ContextProvider({ children }) {
         storeItemId,
         selectedProduct,
         cart,
+        removeFromCart,
+        addQuantity,
+        subtractQuantity,
       }}
     >
       {children}

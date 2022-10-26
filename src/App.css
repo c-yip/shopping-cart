@@ -458,6 +458,14 @@ footer > a > img {
   justify-content: space-between;
 }
 
+.addBtn,
+.subBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 @media (max-width: 1000px) {
   .category-item {
     min-width: 50%;

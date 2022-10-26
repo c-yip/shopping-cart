@@ -5,7 +5,14 @@ import useHooks from "../hooks/useHooks";
 import deleteSymbol from "../images/delete-symbol.png";
 
 export default function Cart() {
-  const { storeData, storeItemId, selectedProduct, cart } = useContext(Context);
+  const {
+    storeData,
+    storeItemId,
+    cart,
+    removeFromCart,
+    addQuantity,
+    subtractQuantity,
+  } = useContext(Context);
 
   const { convertPrice } = useHooks();
 
@@ -32,7 +39,25 @@ export default function Cart() {
 
           <div className="flex space-between">
             <p className="cart-item-quantity">Quantity: {item.quantity}</p>
-            <img className="delete-symbol" src={deleteSymbol} alt="delete" />
+
+            <div className="addSubtract">
+              <button className="addBtn" onClick={() => addQuantity(item.id)}>
+                +
+              </button>
+              <button
+                className="subBtn"
+                onClick={() => subtractQuantity(item.id)}
+              >
+                -
+              </button>
+            </div>
+
+            <img
+              className="delete-symbol"
+              src={deleteSymbol}
+              alt="delete"
+              onClick={() => removeFromCart(item.id)}
+            />
           </div>
         </div>
       </div>
