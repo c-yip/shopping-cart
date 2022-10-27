@@ -83,7 +83,7 @@ export default function Cart() {
 
       <div className="total-container">
         <p>Sub-total:</p>
-        <p>${sum}</p>
+        <p>{sum ? convertPrice(sum) : ""}</p>
       </div>
 
       <div className="total-container">
@@ -93,7 +93,7 @@ export default function Cart() {
 
       <div className="total-container">
         <h4>Total: </h4>
-        <h4>${sum}</h4>
+        <h4>{sum ? convertPrice(sum) : ""}</h4>
       </div>
 
       <button className="product-button">Place your order</button>
