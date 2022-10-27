@@ -10,6 +10,15 @@ a {
   text-decoration: inherit;
 }
 
+.outline-on-hover {
+  border: 1px solid transparent;
+  padding: 1px;
+}
+
+.outline-on-hover:hover {
+  border: 1px solid #d0d0d0;
+}
+
 .App {
   display: flex;
   flex-direction: column;

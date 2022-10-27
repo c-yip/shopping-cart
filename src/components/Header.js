@@ -6,29 +6,35 @@ export default function Header() {
   return (
     <header>
       <Link to="/">
-        <h1 className="logo">Fake Store</h1>
+        <h1 className="logo outline-on-hover">Fake Store</h1>
       </Link>
 
       {/* these will all be links to categories */}
       <nav className="nav-left">
         <Link to="/shop">
-          <h3>Shop</h3>
+          <h3 outline-on-hover>Shop</h3>
         </Link>
-        <h3>Clothing</h3>
-        <h3>Jewelry</h3>
-        <h3>Electronics</h3>
+        <Link to="/clothing">
+          <h3 className="outline-on-hover">Clothing</h3>
+        </Link>
+        <Link to="/jewelry">
+          <h3 className="outline-on-hover">Jewelry</h3>
+        </Link>
+        <Link to="/electronics">
+          <h3 className="outline-on-hover">Electronics</h3>
+        </Link>
       </nav>
 
       <nav className="nav-right">
         <Link to="/wishlist">
-          <div className="nav-icon-container">
+          <div className="nav-icon-container outline-on-hover">
             <img src={heart} alt="Heart icon" />
             <p>Wishlist</p>
           </div>
         </Link>
 
         <Link to="/cart">
-          <div className="nav-icon-container">
+          <div className="nav-icon-container outline-on-hover">
             <img src={shoppingCart} alt="Shopping cart icon" />
             <p>Cart</p>
           </div>
