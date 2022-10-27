@@ -8,6 +8,9 @@ import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
 import Shop from "./pages/Shop";
 import ProductDetails from "./pages/ProductDetails";
+import Clothing from "./pages/Clothing";
+import Jewelry from "./pages/Jewelry";
+import Electronics from "./pages/Electronics";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/productdetails" element={<ProductDetails />} />
+        <Route path="/clothing" element={<Clothing />} />
+        <Route path="/jewelry" element={<Jewelry />} />
+        <Route path="/electronics" element={<Electronics />} />
         <Route path="*" element={<h1>404: Page not found</h1>} />
       </Routes>
 
