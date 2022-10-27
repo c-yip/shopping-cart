@@ -1,22 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
 import { Context } from "../Context";
-import useHooks from "../hooks/useHooks";
-import deleteSymbol from "../images/delete-symbol.png";
+import { ProductCard } from "../components/ProductCard";
 
 export default function Clothing() {
-  const {
-    storeData,
-    storeItemId,
-    cart,
-    removeFromCart,
-    addQuantity,
-    subtractQuantity,
-  } = useContext(Context);
+  const { storeData, loading, toggleFavorite, addToCart, storeItemId } =
+    useContext(Context);
 
-  const { convertPrice } = useHooks();
+  const clothingElements = storeData.map((item) => {
+    if (
+      item.category === "men's clothing" ||
+      item.category === "women's clothing"
+    ) {
+      return ProductCard(item, storeItemId, addToCart, toggleFavorite);
+    }
+  });
 
-  const [sum, setSum] = useState();
-
-  return <h1 className="page-title">Clothing</h1>;
+  return (
+    <div className="clothing page">
+      <h1 className="page-title">Clothing</h1>
+      <div className="products-container">{clothingElements}</div>
+    </div>
+  );
 }

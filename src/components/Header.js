@@ -12,7 +12,7 @@ export default function Header() {
       {/* these will all be links to categories */}
       <nav className="nav-left">
         <Link to="/shop">
-          <h3 outline-on-hover>Shop</h3>
+          <h3 className="outline-on-hover">Shop</h3>
         </Link>
         <Link to="/clothing">
           <h3 className="outline-on-hover">Clothing</h3>
