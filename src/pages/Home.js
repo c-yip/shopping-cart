@@ -17,8 +17,10 @@ export default function Home() {
           className="background-image"
         />
         <div className="hero overlay">
-          <h1>Fake items straight to your doorstep</h1>
-          <h3>Fulfill your fake items needs from the comfort of your home</h3>
+          <h1 className="hero-text">Fake items straight to your doorstep</h1>
+          <h3 className="hero-sub-text">
+            Fulfill your fake items needs from the comfort of your home
+          </h3>
           <Link to="/shop">
             <button className="shop-button">Shop Now</button>
           </Link>
@@ -28,7 +30,7 @@ export default function Home() {
       <section className="featured-items-section">
         <h1 className="category-title">Featured Items</h1>
         {!loading ? (
-          <div className="featured-items categories">
+          <div className="categories">
             <div
               className="category-item"
               style={{
