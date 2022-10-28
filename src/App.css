@@ -549,6 +549,10 @@ footer > a > img {
   .cart-container {
     min-width: 10px;
   }
+
+  .carousel-item > a > img {
+    height: 300px;
+  }
 }
 
 @media (max-width: 800px) {
