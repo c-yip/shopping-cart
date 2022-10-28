@@ -5,14 +5,8 @@ import useHooks from "../hooks/useHooks";
 import deleteSymbol from "../images/delete-symbol.png";
 
 export default function Cart() {
-  const {
-    storeData,
-    storeItemId,
-    cart,
-    removeFromCart,
-    addQuantity,
-    subtractQuantity,
-  } = useContext(Context);
+  const { storeItemId, cart, removeFromCart, addQuantity, subtractQuantity } =
+    useContext(Context);
 
   const { convertPrice } = useHooks();
 
@@ -22,8 +16,6 @@ export default function Cart() {
     const price = cart.map((item) => {
       return item.price * item.quantity;
     });
-
-    console.log("price", price);
 
     const sum = price.reduce((accumulator, num) => {
       return accumulator + num;
@@ -99,8 +91,6 @@ export default function Cart() {
       <button className="product-button">Place your order</button>
     </div>
   );
-  console.log("store data from cart page", storeData);
-  console.log("cart from cart page:", cart);
 
   return (
     <div className="cart-page">

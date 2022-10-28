@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import heart from "../images/heart.png";
 import shoppingCart from "../images/shopping-cart.png";
+import { Context } from "../Context";
 
 export default function Header() {
+  const { cart } = useContext(Context);
+
+  const cartAmount = function () {
+    const quantity = [];
+    cart.map((item) => quantity.push(item.quantity));
+    return quantity.reduce((partialSum, a) => partialSum + a, 0);
+  };
+
   return (
     <header>
       <Link to="/">
@@ -35,6 +45,9 @@ export default function Header() {
 
         <Link to="/cart">
           <div className="nav-icon-container outline-on-hover">
+            {cart.length > 0 && (
+              <span class="badge badge-warning">{cartAmount()}</span>
+            )}
             <img src={shoppingCart} alt="Shopping cart icon" />
             <p>Cart</p>
           </div>
