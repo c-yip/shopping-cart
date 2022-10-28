@@ -1,4 +1,4 @@
-[Live link here!](https://c-yip.github.io/shopping-cart/).
+[Live link here!](https://c-yip.github.io/shopping-cart/)
 
 A fake e-commerce store built with React. The data used by the app is from the [Fakestore API](https://fakestoreapi.com/).
 
