@@ -6,8 +6,8 @@ p {
 }
 
 a {
-  color: inherit;
-  text-decoration: inherit;
+  color: inherit !important;
+  text-decoration: inherit !important;
 }
 
 .outline-on-hover {
@@ -382,8 +382,8 @@ footer > a > img {
 }
 
 .product-detail-image {
-  max-width: 595px;
-  max-height: 404px;
+  max-width: 353px !important;
+  max-height: 404px !important;
 }
 
 .item-detail-text {
@@ -498,6 +498,10 @@ footer > a > img {
   position: absolute;
 }
 
+.carousel-item > a > img {
+  height: 500px;
+}
+
 @media (max-width: 1000px) {
   header {
     flex-direction: column;
@@ -540,6 +544,10 @@ footer > a > img {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .cart-container {
+    min-width: 10px;
   }
 }
 

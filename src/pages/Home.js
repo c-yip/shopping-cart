@@ -4,9 +4,13 @@ import heroImage from "../images/woman-shopping-for-clothes.jpg";
 import couch from "../images/couch.jpg";
 import shoppingCart from "../images/shopping-cart.jpg";
 import { Context } from "../Context";
+import { CCarousel, CCarouselItem, CImage } from "@coreui/react";
+import "@coreui/coreui/dist/css/coreui.min.css";
 
 export default function Home() {
-  const { storeData, loading } = useContext(Context);
+  const { storeData, storeItemId, loading } = useContext(Context);
+  console.log(storeData);
+  !loading && console.log(storeData[0].id);
 
   return (
     <div className="page home">
@@ -29,57 +33,46 @@ export default function Home() {
 
       <section className="featured-items-section">
         <h1 className="category-title">Featured Items</h1>
-        {!loading ? (
-          <div className="categories">
-            <div
-              className="category-item"
-              style={{
-                backgroundImage: `url(${storeData[1].image})`,
-              }}
-            >
-              <div className="category-item-inner">
-                <div>{!loading && storeData[1].title}</div>
-              </div>
-            </div>
-            <div
-              className="category-item"
-              style={{
-                backgroundImage: `url(${storeData[5].image})`,
-              }}
-            >
-              <div className="category-item-inner">
-                <div>{!loading && storeData[5].title}</div>
-              </div>
-            </div>
-            <div
-              className="category-item"
-              style={{
-                backgroundImage: `url(${storeData[19].image})`,
-              }}
-            >
-              <div className="category-item-inner">
-                <div>{!loading && storeData[19].title}</div>
-              </div>
-            </div>
-            <div
-              className="category-item"
-              style={{
-                backgroundImage: `url(${storeData[12].image})`,
-              }}
-            >
-              <div className="category-item-inner">
-                <div>{!loading && storeData[12].title}</div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <h1>Loading . . . </h1>
+        {!loading && (
+          <CCarousel controls indicators>
+            <CCarouselItem>
+              <Link to="/productdetails">
+                <CImage
+                  className="d-block w-100"
+                  src={storeData[0].image}
+                  alt="slide 1"
+                  onClick={() => storeItemId(storeData[0].id)}
+                />
+              </Link>
+            </CCarouselItem>
+
+            <CCarouselItem>
+              <Link to="/productdetails">
+                <CImage
+                  className="d-block w-100"
+                  src={storeData[12].image}
+                  alt="slide 2"
+                  onClick={() => storeItemId(storeData[12].id)}
+                />
+              </Link>
+            </CCarouselItem>
+            <CCarouselItem>
+              <Link to="/productdetails">
+                <CImage
+                  className="d-block w-100"
+                  src={storeData[19].image}
+                  alt="slide 3"
+                  onClick={() => storeItemId(storeData[19].id)}
+                />
+              </Link>
+            </CCarouselItem>
+          </CCarousel>
         )}
       </section>
 
       <div className="about-section">
         <div className="description1">
-          <img src={couch} alt="image" />
+          <img src={couch} alt="shopping on couch" />
           <div>
             <h2>What is Fake Store?</h2>
             <p>
