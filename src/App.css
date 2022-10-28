@@ -330,6 +330,11 @@ footer > a > img {
   background-color: rgb(238, 198, 0);
 }
 
+.product-button:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
 .product-rating-count {
   color: rgb(104, 103, 103);
 }
