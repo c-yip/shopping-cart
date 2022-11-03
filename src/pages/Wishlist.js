@@ -19,13 +19,7 @@ export default function Wishlist() {
 
   const wishlistElements = storeData.map((item) => {
     if (item.favorite) {
-      return ProductCard(
-        item,
-        storeItemId,
-        addToCart,
-        heartStyle,
-        toggleFavorite
-      );
+      return ProductCard(item, storeItemId, addToCart, toggleFavorite);
     }
   });
 
