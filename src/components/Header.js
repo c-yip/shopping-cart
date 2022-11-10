@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <header>
       <Link to="/">
-        <h1 className="logo outline-on-hover">Fake Store</h1>
+        <h1 className="logo outline-on-hover">Shopping Cart</h1>
       </Link>
 
       {/* these will all be links to categories */}
